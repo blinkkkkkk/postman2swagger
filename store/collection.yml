@@ -1,0 +1,410 @@
+openapi: 3.0.0
+info:
+  title: huihuajia-汇总
+  version: 1.0.0
+servers:
+  - url: http://47.97.51.98:6071
+tags:
+  - name: auth
+  - name: 违规报警
+  - name: 楼面进度
+  - name: 报表
+  - name: 红帽子
+  - name: 混凝土工期
+paths:
+  /api/huihuajia/auth/login:
+    post:
+      tags:
+        - auth
+      summary: 小程序登录
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                userName:
+                  type: string
+                  example: test4
+                password:
+                  type: string
+                  example: test
+                js_code:
+                  type: string
+                  example: 073IXv100xBL3N1weO100xFQbi0IXv1t
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/auth/register:
+    post:
+      tags:
+        - auth
+      summary: 小程序注册
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                fullName:
+                  type: string
+                  example: 黄涛
+                mobileNumber:
+                  type: integer
+                  example: '15216860081'
+                userName:
+                  type: string
+                  example: test3
+                password:
+                  type: string
+                  example: test
+                repeatPassword:
+                  type: string
+                  example: test
+                roles:
+                  type: string
+                  description: 项目管理人员/区域管理人员/集团管理人员/员工
+                  example: 区域管理人员
+                '':
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/auth/logout:
+    post:
+      tags:
+        - auth
+      summary: 小程序登出
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                _id:
+                  type: string
+                  example: 61aec25568b4db3543bd065f
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/allViolations:
+    get:
+      tags:
+        - 违规报警
+      summary: 获取所有安全事件
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: string
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTM1MzA4NCwiZXhwIjoxNjQxMzg5MDg0fQ.PQC0unRVTReWr8QGJwisS88B4pv0i5g_VLImMh5u_t0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/violationsByDate:
+    get:
+      tags:
+        - 违规报警
+      summary: 按日期获取违规事件
+      parameters:
+        - name: year
+          in: query
+          schema:
+            type: integer
+          example: '2021'
+        - name: month
+          in: query
+          schema:
+            type: integer
+          example: '12'
+        - name: day
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: token
+          in: query
+          schema:
+            type: string
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/violationsByDuration:
+    post:
+      tags:
+        - 违规报警
+      summary: 基于时间区间获取安全事件
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                startDate:
+                  type: string
+                  example: '2021-11-01'
+                endDate:
+                  type: string
+                  example: '2021-12-30'
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: string
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/uploadPhotos:
+    post:
+      tags:
+        - 楼面进度
+      summary: 闭环图片上传接口
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file1:
+                  type: string
+                  format: binary
+                file2:
+                  type: string
+                  format: binary
+                file3:
+                  type: string
+                  format: binary
+                solveImgUrl:
+                  type: string
+                  example: '[test.png,test2.png,test3.png]'
+                id:
+                  type: string
+                  example: 61b99ae4ed8cadc461e58058
+                eventType:
+                  type: string
+                  description: 未佩戴安全帽服闯入安全区/未佩戴安全帽服闯入安全设备识别区
+                  example: 作业面施工超期
+                zone:
+                  type: string
+                  description: 安全事件检测区/安全设备识别区/作业面
+                  example: 作业面
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: string
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Imppbmh1YSIsInJvbGVzIjoi6aG555uu566h55CG5Lq65ZGYIiwiaWF0IjoxNjQyNjQ3OTk3LCJleHAiOjE2NDI3MzQzOTd9.qCHsrDqwSAN-_b9pha_hA9tzrqmlIXzP-PlR-_TNotI
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/allConcretes:
+    get:
+      tags:
+        - 混凝土工期
+      summary: 混凝土工期
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/getReport:
+    post:
+      tags:
+        - 报表
+      summary: 报告接口 日报汇总
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                reportType:
+                  type: string
+                  example: reportList
+                startDate:
+                  type: string
+                  example: '2021-12-21'
+                endDate:
+                  type: string
+                  example: '2021-12-30'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/getDetectionListByDate:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据日期获得当日用户设置的监控时间
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                date:
+                  type: string
+                  example: '2021-12-23'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/getDetectionListByDeviceId:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据作业面deviceID获得用户设置的所有时间
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                deviceId:
+                  type: integer
+                  example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/insertConfig:
+    post:
+      tags:
+        - 红帽子
+      summary: 新增用户设置的时间段
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                deviceId:
+                  type: integer
+                  example: '1'
+                deviceInfo:
+                  type: string
+                  example: 十七号楼作业面
+                startTime:
+                  type: string
+                  example: '2021-12-23T15:00:00Z'
+                endTime:
+                  type: string
+                  example: '2021-12-23T15:30:00Z'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/removeConfigById:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据_id删除用户设置的时间
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                _id:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/updateConfigById:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据_id更新用户设置的时间
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                startTime:
+                  type: string
+                  example: '2021-12-23T15:00:00Z'
+                endTime:
+                  type: string
+                  example: '2021-12-23T15:30:00Z'
+                _id:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/getAllWorkingAreaInfo:
+    get:
+      tags:
+        - 红帽子
+      summary: 获取所有作业面信息
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/redHatDetectionByDate:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据日期和deviceId(指定作业面或全部作业面)获得当日红帽子检测情况
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                date:
+                  type: string
+                  example: '2021-12-23'
+                type:
+                  type: string
+                  description: all/deviceId
+                  example: all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/huihuajia/redHatDetectionByDuration:
+    post:
+      tags:
+        - 红帽子
+      summary: 根据时间段和和deviceId(指定作业面或全部作业面)获得时间段内红帽子检测情况
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                startDate:
+                  type: string
+                  description: all/deviceId
+                  example: '2021-12-23T00:00:00Z'
+                endDate:
+                  type: string
+                  example: '2021-12-23T23:59:59Z'
+                type:
+                  type: string
+                  description: all/deviceId
+                  example: all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

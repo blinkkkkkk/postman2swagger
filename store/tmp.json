@@ -1,0 +1,955 @@
+{
+	"info": {
+		"_postman_id": "fdb97c7a-9504-4cf3-a2d0-7aafbec12c6f",
+		"name": "huihuajia-汇总",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "小程序登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userName",
+									"value": "test4",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "js_code",
+									"value": "073IXv100xBL3N1weO100xFQbi0IXv1t",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/auth/login",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "小程序注册",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullName",
+									"value": "黄涛",
+									"type": "text"
+								},
+								{
+									"key": "mobileNumber",
+									"value": "15216860081",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "test3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "repeatPassword",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "roles",
+									"value": "区域管理人员",
+									"description": "项目管理人员/区域管理人员/集团管理人员/员工",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/auth/register",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "小程序登出",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "_id",
+									"value": "61aec25568b4db3543bd065f",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/auth/logout",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "违规报警",
+			"item": [
+				{
+					"name": "获取所有安全事件",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/allViolations?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTM1MzA4NCwiZXhwIjoxNjQxMzg5MDg0fQ.PQC0unRVTReWr8QGJwisS88B4pv0i5g_VLImMh5u_t0",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"allViolations"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTM1MzA4NCwiZXhwIjoxNjQxMzg5MDg0fQ.PQC0unRVTReWr8QGJwisS88B4pv0i5g_VLImMh5u_t0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "按日期获取违规事件",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/violationsByDate?year=2021&month=12&day=3&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"violationsByDate"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2021"
+								},
+								{
+									"key": "month",
+									"value": "12"
+								},
+								{
+									"key": "day",
+									"value": "3"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "基于时间区间获取安全事件",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "startDate",
+									"value": "2021-11-01",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-12-30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/violationsByDuration?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"violationsByDuration"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "闭环图片上传接口",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file1",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test.png"
+								},
+								{
+									"key": "file2",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test2.png"
+								},
+								{
+									"key": "file3",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test3.png"
+								},
+								{
+									"key": "solveImgUrl",
+									"value": "[test.png,test2.png,test3.png]",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "61e4c8222ed5bfffe0eaa27d",
+									"type": "text"
+								},
+								{
+									"key": "eventType",
+									"value": "作业面施工超期",
+									"description": "未佩戴安全帽服闯入安全区/未佩戴安全帽服闯入安全设备识别区",
+									"type": "text"
+								},
+								{
+									"key": "zone",
+									"value": "作业面",
+									"description": "安全事件检测区/安全设备识别区/作业面",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/uploadPhotos?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Imppbmh1YSIsInJvbGVzIjoi6aG555uu566h55CG5Lq65ZGYIiwiaWF0IjoxNjQyMzg1NjI5LCJleHAiOjE2NDI0NzIwMjl9.womoK_FSMNrid-ieLYLSde5AxeCDZmrKXBPTYzwpvbg",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"uploadPhotos"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Imppbmh1YSIsInJvbGVzIjoi6aG555uu566h55CG5Lq65ZGYIiwiaWF0IjoxNjQyMzg1NjI5LCJleHAiOjE2NDI0NzIwMjl9.womoK_FSMNrid-ieLYLSde5AxeCDZmrKXBPTYzwpvbg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "楼面进度",
+			"item": [
+				{
+					"name": "楼面进度",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/allConcretes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3Q0Iiwicm9sZXMiOiLpobnnm67nrqHnkIbkurrlkZgiLCJpYXQiOjE2NDIxMzY2NTMsImV4cCI6MTY0MjIyMzA1M30.GCXkUBG0YK4LXkflv4mXN4wZggcukVgQaafa6KdOO8g",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"allConcretes"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3Q0Iiwicm9sZXMiOiLpobnnm67nrqHnkIbkurrlkZgiLCJpYXQiOjE2NDIxMzY2NTMsImV4cCI6MTY0MjIyMzA1M30.GCXkUBG0YK4LXkflv4mXN4wZggcukVgQaafa6KdOO8g"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "楼面进度预警",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "闭环图片上传接口",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file1",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test.png"
+								},
+								{
+									"key": "file2",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test2.png"
+								},
+								{
+									"key": "file3",
+									"type": "file",
+									"src": "/C:/Users/invix_yihang/Desktop/绘画家接口对接/test3.png"
+								},
+								{
+									"key": "solveImgUrl",
+									"value": "[test.png,test2.png,test3.png]",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "61b99ae4ed8cadc461e58058",
+									"type": "text"
+								},
+								{
+									"key": "eventType",
+									"value": "作业面施工超期",
+									"description": "未佩戴安全帽服闯入安全区/未佩戴安全帽服闯入安全设备识别区",
+									"type": "text"
+								},
+								{
+									"key": "zone",
+									"value": "作业面",
+									"description": "安全事件检测区/安全设备识别区/作业面",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/uploadPhotos?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Imppbmh1YSIsInJvbGVzIjoi6aG555uu566h55CG5Lq65ZGYIiwiaWF0IjoxNjQyNjQ3OTk3LCJleHAiOjE2NDI3MzQzOTd9.qCHsrDqwSAN-_b9pha_hA9tzrqmlIXzP-PlR-_TNotI",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"uploadPhotos"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Imppbmh1YSIsInJvbGVzIjoi6aG555uu566h55CG5Lq65ZGYIiwiaWF0IjoxNjQyNjQ3OTk3LCJleHAiOjE2NDI3MzQzOTd9.qCHsrDqwSAN-_b9pha_hA9tzrqmlIXzP-PlR-_TNotI"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "报表",
+			"item": [
+				{
+					"name": "报告接口 按时间段查询（周报 月报）",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reportType",
+									"value": "reportByDuration",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2021-12-21",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-12-30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getReport",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报告接口 日报",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reportType",
+									"value": "dailyReport",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2021-12-28",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJyb2xlcyI6IumbhuWboueuoeeQhuS6uuWRmCIsImlhdCI6MTY0MTQzOTEyOSwiZXhwIjoxNjQxNTI1NTI5fQ.3ipQ7W-8tT_f6RRvYdzFrRj1bW64umeZxhW3Yb4pGS4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getReport",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "报告接口 日报汇总",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reportType",
+									"value": "reportList",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2021-12-21",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-12-30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getReport",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getReport"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "红帽子",
+			"item": [
+				{
+					"name": "根据日期获得当日用户设置的监控时间",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "2021-12-23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getDetectionListByDate",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getDetectionListByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据作业面deviceID获得用户设置的所有时间",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getDetectionListByDeviceId",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getDetectionListByDeviceId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增用户设置的时间段",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "deviceId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "deviceInfo",
+									"value": "十七号楼作业面",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "2021-12-23T15:00:00Z",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "2021-12-23T15:30:00Z",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/insertConfig",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"insertConfig"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据_id删除用户设置的时间",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/removeConfigById",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"removeConfigById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据_id更新用户设置的时间",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "startTime",
+									"value": "2021-12-23T15:00:00Z",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "2021-12-23T15:30:00Z",
+									"type": "text"
+								},
+								{
+									"key": "_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/updateConfigById",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"updateConfigById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有作业面信息",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/getAllWorkingAreaInfo",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"getAllWorkingAreaInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据日期和deviceId(指定作业面或全部作业面)获得当日红帽子检测情况",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "2021-12-23",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "all",
+									"description": "all/deviceId",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/redHatDetectionByDate",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"redHatDetectionByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据时间段和和deviceId(指定作业面或全部作业面)获得时间段内红帽子检测情况",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "startDate",
+									"value": "2021-12-23T00:00:00Z",
+									"description": "all/deviceId",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-12-23T23:59:59Z",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "all",
+									"description": "all/deviceId",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/redHatDetectionByDuration",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"redHatDetectionByDuration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "混凝土工期",
+			"item": [
+				{
+					"name": "混凝土工期",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.97.51.98:6071/api/huihuajia/allConcretes",
+							"protocol": "http",
+							"host": [
+								"47",
+								"97",
+								"51",
+								"98"
+							],
+							"port": "6071",
+							"path": [
+								"api",
+								"huihuajia",
+								"allConcretes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
